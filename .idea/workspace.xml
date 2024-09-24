@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f48979b8-c111-44e5-90ed-dcde9ce59666" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/BibliotecarioController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ClienteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/LivroController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bibliotecario/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cliente/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/livro/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LivrosController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Livros.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LivrosRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,6 +242,9 @@
       <workItem from="1727079440747" duration="2728000" />
       <workItem from="1727082205273" duration="1398000" />
       <workItem from="1727131430971" duration="2208000" />
+      <workItem from="1727135016910" duration="1601000" />
+      <workItem from="1727138630458" duration="4800000" />
+      <workItem from="1727161331626" duration="8735000" />
     </task>
     <servers />
   </component>
