@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UsuarioController extends AbstractController
 {
     #[Route('/usuario', name: 'app_usuario')]
-    public function index(EntityManagerInterface $em): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
         $nome = "Raiff Nóbrega";
         return $this->render('usuario/index.html.twig', [

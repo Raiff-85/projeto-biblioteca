@@ -3,14 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\LivroRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LivroRepository::class)]
 class Livro
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'AUTO')] // Geração automática
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: 'integer')]
     private ?int $id_livro = null;
 
@@ -26,11 +25,11 @@ class Livro
     #[ORM\Column(length: 255)]
     private ?string $editora = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $ano_publicacao = null;
+    #[ORM\Column(type: 'integer')]
+    private ?int $ano_publicacao = null;
 
-    #[ORM\Column(length: 13, unique: true)]
-    private ?int $cod_isbn = null;
+    #[ORM\Column(unique: true)]
+    private ?string $cod_isbn = null;
 
     #[ORM\Column]
     private ?int $quantidade = null;
@@ -98,12 +97,12 @@ class Livro
         return $this;
     }
 
-    public function getAnoPublicacao(): ?\DateTimeInterface
+    public function getAnoPublicacao(): ?int
     {
         return $this->ano_publicacao;
     }
 
-    public function setAnoPublicacao(\DateTimeInterface $ano_publicacao): static
+    public function setAnoPublicacao(int $ano_publicacao): static
     {
         $this->ano_publicacao = $ano_publicacao;
 
