@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f48979b8-c111-44e5-90ed-dcde9ce59666" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/LivroType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/livro/buscar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/livro/livro.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240924123110.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20240924125917.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LivroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LivroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Livro.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Livro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/livro/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/livro/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/LivroType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LivroType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/LivroRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LivroRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/livro/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/livro/adicionar_livro.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +194,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Symfony\projeto-biblioteca\templates\livro" />
+    </key>
+  </component>
   <component name="RunManager" selected="PHPUnit.UsuarioControllerTest.testSomething">
     <configuration name="UsuarioControllerTest.testSomething" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\UsuarioControllerTest" file="$PROJECT_DIR$/tests/UsuarioControllerTest.php" method="testSomething" scope="Method" />
@@ -246,6 +251,8 @@
       <workItem from="1727138630458" duration="4800000" />
       <workItem from="1727161331626" duration="15478000" />
       <workItem from="1727221144462" duration="5018000" />
+      <workItem from="1727296123990" duration="11063000" />
+      <workItem from="1727322164732" duration="7365000" />
     </task>
     <servers />
   </component>

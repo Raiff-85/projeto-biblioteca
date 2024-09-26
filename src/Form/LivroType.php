@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,8 +23,12 @@ class LivroType extends AbstractType
                 ['label' => 'Editora: '])
             ->add('ano_publicacao', IntegerType::class,
                 ['label' => 'Ano: '])
-            ->add('cod_isbn', IntegerType::class,
-                ['label' => 'ISBN: '])
+            ->add('cod_isbn', TextType::class, [
+                'label' => 'ISBN',
+                'attr' => [
+                    'maxlength' => 13,
+                ]
+            ])
             ->add('quantidade', TextType::class,
                 ['label' => 'Quantidade: '])
             ->add('setor', TextType::class,

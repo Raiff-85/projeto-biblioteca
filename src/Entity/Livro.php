@@ -37,12 +37,12 @@ class Livro
     #[ORM\Column(length: 255)]
     private ?string $setor = null;
 
-    public function getIdLivro(): ?int
+    public function getId(): ?int
     {
         return $this->id_livro;
     }
 
-    public function setIdLivro(int $id_livro): static
+    public function setId(int $id_livro): static
     {
         $this->id_livro = $id_livro;
 
