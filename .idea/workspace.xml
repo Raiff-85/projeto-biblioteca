@@ -5,16 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f48979b8-c111-44e5-90ed-dcde9ce59666" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/livro/buscar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/livro/livro.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/EmprestimoType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/area_do_bibliotecario/area_bibliotecario.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/emprestimo/pegar_livro.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/livro/gerenciar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/livro/listar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reserva/reserva.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20240925005302.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BibliotecarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AreaBibliotecarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClienteController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LivroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LivroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UsuarioController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Bibliotecario.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Cliente.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Livro.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Livro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Usuario.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/LivroType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LivroType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LivroRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LivroRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/livro/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/livro/adicionar_livro.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BibliotecarioRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ClienteRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UsuarioRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bibliotecario/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emprestimo/emprestar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cliente/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/livro/editar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/livro/adicionar_livro.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/livro/adicionar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/livro/buscar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/livro/buscar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/livro/livro.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usuario/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario/usuario.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +270,21 @@
       <workItem from="1727161331626" duration="15478000" />
       <workItem from="1727221144462" duration="5018000" />
       <workItem from="1727296123990" duration="11063000" />
-      <workItem from="1727322164732" duration="7365000" />
+      <workItem from="1727322164732" duration="7704000" />
+      <workItem from="1727367658545" duration="659000" />
+      <workItem from="1727893917574" duration="9111000" />
+      <workItem from="1728077762006" duration="8905000" />
+      <workItem from="1728090531860" duration="2152000" />
+      <workItem from="1728247685072" duration="5994000" />
+      <workItem from="1728253833921" duration="45129000" />
+      <workItem from="1728317706175" duration="12706000" />
+      <workItem from="1728409532884" duration="311000" />
+      <workItem from="1728409864382" duration="9332000" />
+      <workItem from="1728428611391" duration="5225000" />
+      <workItem from="1728436812876" duration="13012000" />
+      <workItem from="1728454053711" duration="900000" />
+      <workItem from="1728492694922" duration="1299000" />
+      <workItem from="1728494458917" duration="3598000" />
     </task>
     <servers />
   </component>

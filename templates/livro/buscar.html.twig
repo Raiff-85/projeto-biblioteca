@@ -4,17 +4,19 @@
 
 {% block body %}
     <h1>Busca de Livros</h1>
+
+    <a href="{{ path('gerenciar_livro') }}" class="btn btn-secondary mt-3">Voltar</a>
+
         <div>
             {{ form_start(form) }}
             {{ form_row(form.titulo) }}
             {{ form_row(form.buscar) }}
             {{ form_end(form) }}
         </div>
-    {% if form.vars.submitted and livros is empty %}
-        <p>Não existem livros que correspondam à sua busca.</p>
-    {% elseif not form.vars.submitted %}
-        <p>Faça uma busca para exibir os livros.</p>
-    {% else %}
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
+    {% endif %}
+    {% if livros is not empty %}
         <table class="table">
             <thead>
             <tr>

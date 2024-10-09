@@ -4,12 +4,21 @@
 
 {% block body %}
     <h1>Lista de Livros</h1>
+    <a href="{{ path('gerenciar_livro') }}" class="btn btn-secondary mt-3">Voltar</a>
+    {% for label, messages in app.flashes %}
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endfor %}
     <table class="table">
         <thead>
         <tr>
             <th>ID</th>
             <th>Título</th>
             <th>Autor</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -19,12 +28,9 @@
                 <td>{{ livro.titulo }}</td>
                 <td>{{ livro.autor }}</td>
                 <td>
-                    <a href="{{ path('livro_adicionar') }}" class="btn btn-primary">Adicionar livro</a>
+                    <a href="{{ path('editar_livro', {id_livro: livro.id}) }}" class="btn btn-primary">Editar livro</a>
+                    <a href="{{ path('excluir_livro', {id_livro: livro.id}) }}" class="btn btn-primary">Excluir livro</a>
                 </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">Nenhum livro encontrado.</td>
             </tr>
         {% endfor %}
         </tbody>

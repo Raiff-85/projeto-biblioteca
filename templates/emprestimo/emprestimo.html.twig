@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Empréstimos</h1>
+    <a href="{{ path('area_cliente_index') }}" class="btn btn-secondary mt-3">Voltar</a>
+
+    <h3>Realize a busca de um livro para efetuar o empréstimo.</h3>
+
+    <a href="{{ path('emprestar_livro') }}" class="btn btn-primary">Buscar Livro para Empréstimo</a>
+
+{% endblock %}
+

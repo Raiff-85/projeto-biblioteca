@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\LivroRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: LivroRepository::class)]
+#[ORM\UniqueConstraint(fields: ["cod_isbn"], name: "unique_isbn")]
+#[UniqueEntity(fields: ["cod_isbn"], message: "Este ISBN já existe.")]
 class Livro
 {
     #[ORM\Id]
@@ -36,6 +39,9 @@ class Livro
 
     #[ORM\Column(length: 255)]
     private ?string $setor = null;
+
+    #[ORM\Column(length: 255)]
+    private string $situacao;
 
     public function getId(): ?int
     {
@@ -141,6 +147,18 @@ class Livro
     public function setSetor(string $setor): static
     {
         $this->setor = $setor;
+
+        return $this;
+    }
+
+    public function getSituacao(): ?string
+    {
+        return $this->situacao;
+    }
+
+    public function setSituacao(string $situacao): static
+    {
+        $this->situacao = $situacao;
 
         return $this;
     }

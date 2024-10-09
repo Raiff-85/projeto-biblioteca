@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-4 offset-4">
+            <h1>Biblioteca Municipal</h1>
+
+            <h4>Faça seu login</h4>
+
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+
+            <form action="{{ path('login_index') }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required autofocus />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="_password" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

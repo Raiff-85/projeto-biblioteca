@@ -6,3 +6,7 @@ livro_index:
     path: /livro
     controller: App\Controller\LivroController::index
     methods: GET
+
+log_out:
+    path: /log_out
+    methods: GET

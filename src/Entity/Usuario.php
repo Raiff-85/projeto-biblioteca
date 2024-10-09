@@ -4,78 +4,56 @@ namespace App\Entity;
 
 use App\Repository\UsuarioRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UsuarioRepository::class)]
-class Usuario
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'AUTO')] // Geração automática
-    #[ORM\Column(type: 'integer')]
-    private int $id_usuario;
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id_usuario = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $nome = null;
-
-    #[ORM\Column(length: 255, unique: true)]
+    #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $senha = null;
-
-    #[ORM\Column(length: 11, unique: true)]
-    private ?int $cpf = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $cidade = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $estado = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $logradouro = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $bairro = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $numero = null;
-
     #[ORM\Column]
-    private ?int $cep = null;
+    private array $roles = [];
 
-    #[ORM\Column(length: 13)]
-    private ?string $tipo = null;
+    /**
+     * @var string The hashed password
+     */
+    #[ORM\Column]
+    private ?string $password = null;
+
+    /**
+     * Este campo é usado apenas para a confirmação da senha no formulário.
+     * Não é mapeado no banco de dados.
+     *
+     * @Assert\Expression(
+     *     "this.getPassword() === this.getConfirmePassword()",
+     * )
+     */
+    private ?string $confirmePassword = null;
+
+    #[ORM\Column(length: 255)]
+    private string $nome;
+    #[ORM\Column]
+    private string $cpf;
 
     #[ORM\Column]
     private ?int $telefone = null;
 
+    #[ORM\Column]
+    private ?int $Tipo = null;
+
     public function getId(): ?int
     {
-        return $this->id;
-    }
-
-    public function getIdUsuario(): ?int
-    {
         return $this->id_usuario;
-    }
-
-    public function setIdUsuario(string $id_usuario): static
-    {
-        $this->id_usuario = $id_usuario;
-
-        return $this;
-    }
-
-    public function getNome(): ?string
-    {
-        return $this->nome;
-    }
-
-    public function setNome(string $nome): static
-    {
-        $this->nome = $nome;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -90,14 +68,94 @@ class Usuario
         return $this;
     }
 
-    public function getSenha(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
     {
-        return $this->senha;
+        return (string) $this->email;
     }
 
-    public function setSenha(string $senha): static
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->senha = $senha;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function setPassword(string $password): static
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getConfirmePassword(): ?string
+    {
+        return $this->confirmePassword;
+    }
+
+    public function setConfirmePassword(?string $confirmePassword): self
+    {
+        $this->confirmePassword = $confirmePassword;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    public function getNome(): ?string
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome): static
+    {
+        $this->nome = $nome;
+
+        return $this;
+    }
+
+    public function getIdUsuario(): ?int
+    {
+        return $this->id_usuario;
+    }
+
+    public function setIdUsuario(int $id_usuario): static
+    {
+        $this->id_usuario = $id_usuario;
 
         return $this;
     }
@@ -114,89 +172,6 @@ class Usuario
         return $this;
     }
 
-    public function getCidade(): ?string
-    {
-        return $this->cidade;
-    }
-
-    public function setCidade(string $cidade): static
-    {
-        $this->cidade = $cidade;
-
-        return $this;
-    }
-
-    public function getEstado(): ?string
-    {
-        return $this->estado;
-    }
-
-    public function setEstado(string $estado): static
-    {
-        $this->estado = $estado;
-
-        return $this;
-    }
-
-    public function getLogradouro(): ?string
-    {
-        return $this->logradouro;
-    }
-
-    public function setLogradouro(string $logradouro): static
-    {
-        $this->logradouro = $logradouro;
-
-        return $this;
-    }
-
-    public function getBairro(): ?string
-    {
-        return $this->bairro;
-    }
-
-    public function setBairro(string $bairro): static
-    {
-        $this->bairro = $bairro;
-
-        return $this;
-    }
-    public function getNumero(): ?string
-    {
-        return $this->numero;
-    }
-
-    public function setNumero(string $numero): static
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    public function getCep(): ?int
-    {
-        return $this->cep;
-    }
-
-    public function setCep(int $cep): static
-    {
-        $this->cep = $cep;
-
-        return $this;
-    }
-
-    public function getTipo(): ?string
-    {
-        return $this->tipo;
-    }
-
-    public function setTipo(string $tipo): static
-    {
-        $this->tipo = $tipo;
-
-        return $this;
-    }
-
     public function getTelefone(): ?int
     {
         return $this->telefone;
@@ -209,4 +184,15 @@ class Usuario
         return $this;
     }
 
+    public function getTipo(): ?int
+    {
+        return $this->Tipo;
+    }
+
+    public function setTipo(int $Tipo): static
+    {
+        $this->Tipo = $Tipo;
+
+        return $this;
+    }
 }

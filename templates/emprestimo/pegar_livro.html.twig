@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Selecionar Livros{% endblock %}
+
+{% block body %}
+    <h1>Realizar Empréstimo</h1>
+
+    {{ form_start(formLivro) }}
+    {{ form_row(formLivro.titulo) }}
+    {{ form_row(formLivro.buscar) }}
+    {{ form_end(formLivro) }}
+
+    {% for label, messages in app.flashes %}
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    {% if livros is not empty %}
+        <h2>Livros Encontrados:</h2>
+
+        <h6>Selecione</h6>
+        <ul>
+            {% for livro in livros %}
+                <li>
+                    <a href="{{ path('realizar_emprestimo', { id_livro: livro.id }) }}">
+                        {{ livro.titulo }} - Disponíveis: {{ livro.quantidade }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Livro{% endblock %}
+
+{% block body %}
+    <h1>{{ titulo }}</h1>
+    <a href="{{ path('listar_livro') }}" class="btn btn-secondary mt-3">Voltar</a>
+    <div class="container mt-4">
+        {{ form_start(form) }}
+        {{ form_widget(form) }} {# já adiciona o botão salvar #}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

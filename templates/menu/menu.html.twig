@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Página inicial{% endblock %}
+
+{% block body %}
+    <h1>Biblioteca Municipal</h1>
+
+    <div id="user-status" class="alert" style="display:none;"></div>
+
+    <script>
+        let idleTime = 0; // Contador de inatividade
+        let timeout; // Temporizador
+
+        // Função para verificar a autenticação
+        function checkAuth() {
+            fetch('/check-auth') // Rota que você vai criar para verificar a autenticação
+                .then(response => {
+                    if (!response.ok) {
+                        document.getElementById('user-status').innerHTML = "Você não está logado.";
+                        document.getElementById('user-status').classList.add('alert-warning');
+                        document.getElementById('user-status').style.display = 'block';
+                    }
+                });
+        }
+
+        // Incrementa o tempo de inatividade
+        function timerIncrement() {
+            idleTime++;
+            // Se o usuário estiver inativo por 5 minutos (300 segundos), verifica a autenticação
+            if (idleTime > 300) {
+                checkAuth();
+                idleTime = 0; // Reseta o contador após a verificação
+            }
+        }
+
+        // Reseta o contador de inatividade
+        function resetTimer() {
+            idleTime = 0;
+        }
+
+        // Define os eventos para interação do usuário
+        window.onload = function() {
+            // Reseta o timer a cada movimento do mouse ou tecla pressionada
+            document.onmousemove = resetTimer;
+            document.onkeypress = resetTimer;
+
+            // Inicia o temporizador que verifica a inatividade a cada segundo
+            setInterval(timerIncrement, 1000);
+        };
+    </script>
+
+    {% if user %}
+        <div class="alert alert-info">
+            Você está logado(a) como {{ user.userIdentifier }}.
+        </div>
+    {% endif %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path('menu_index') }}">Biblioteca Municipal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    {% if user and user.tipo == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ path('area_biblio_index') }}">Área do Bibliotecário</a>
+                    </li>
+                    {% endif %}
+                    {% if user and user.tipo == 1 %}
+
+                    {% endif %}
+
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    {% if not app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('register_index') }}">Registrar-se</a>
+                    </li>
+                    {% endif %}
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('logout_index') }}"> Sair </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('login_index') }}">Entrar</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+</div>
+{% endblock %}

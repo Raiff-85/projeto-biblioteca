@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gerenciar Livros{% endblock %}
+
+{% block body %}
+    <h1>Gerenciar Livros</h1>
+    <a href="{{ path('area_biblio_index') }}" class="btn btn-secondary mt-3">Voltar</a>
+        <tbody>
+                <td>
+                    <a href="{{ path('adicionar_livro') }}" class="btn btn-primary">Adicionar livro</a>
+                    <a href="{{ path('buscar_livro') }}" class="btn btn-primary">Buscar livro</a>
+                    <a href="{{ path('listar_livro') }}" class="btn btn-primary">Listar livros</a>
+                </td>
+        </tbody>
+    {% for label, messages in app.flashes %}
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

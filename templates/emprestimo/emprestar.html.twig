@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Realizar Empréstimo</h1>
+
+    {{ form_start(formCliente) }}
+    <div>
+        {{ form_row(formCliente.cpfCliente, {'attr': {'id': 'cpfCliente'}}) }}
+        {{ form_row(formCliente.nomeCliente, {'attr': {'id': 'nomeCliente', 'readonly': true}}) }} <!-- Campo de nome como somente leitura -->
+    </div>
+    {{ form_row(formCliente.emprestar) }}
+    {{ form_end(formCliente) }}
+
+    <script>
+        document.getElementById('cpfCliente').addEventListener('input', function() {
+            var cpf = this.value;
+            if (cpf.length === 11) { // Verifica se o CPF tem 11 dígitos
+                fetch('{{ path("buscar_cliente") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: new URLSearchParams({
+                        'cpf': cpf
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            alert(data.error); // Exibe o erro, se houver
+                        } else {
+                            document.getElementById('nomeCliente').value = data.nome; // Preenche o campo nome
+                        }
+                    })
+                    .catch(error => console.error('Erro na requisição:', error));
+            }
+        });
+    </script>
+{% endblock %}

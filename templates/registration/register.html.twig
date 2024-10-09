@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registrar-se{% endblock %}
+
+{% block body %}
+    <h1>Registrar-se</h1>
+    <a href="{{ path('menu_index') }}" class="btn btn-secondary mt-3">Voltar</a>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.nome) }}
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.cpf) }}
+    {{ form_row(registrationForm.telefone) }}
+    {{ form_row(registrationForm.tipo) }}
+    {{ form_row(registrationForm.password, {
+        label: 'Senha'
+    }) }}
+    {{ form_row(registrationForm.confirmePassword, {
+        label: 'Confirme sua senha'
+    }) }}
+    {{ form_row(registrationForm.agreeTerms) }}
+
+    {{ form_end(registrationForm) }}
+{% endblock %}

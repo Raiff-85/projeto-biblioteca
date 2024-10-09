@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adicionar livro{% endblock %}
+
+{% block body %}
+    <h1>Adicionar livro</h1>
+
+    <a href="{{ path('gerenciar_livro') }}" class="btn btn-secondary mt-3">Voltar</a>
+
+    {% for error in form.vars.errors %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% endfor %}
+
+    {{ form(form) }}
+{% endblock %}
